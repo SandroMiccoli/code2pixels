@@ -11,7 +11,7 @@ void setup() {
 }
 
 void draw() { 
-  blendMode(DIFFERENCE);
+  blendMode(EXCLUSION);
   background(bg);
   int r = int(random(500));
   noiseSeed(r);
@@ -23,29 +23,23 @@ void draw() {
   
   beginShape();
   for (float a = 0; a < HALF_PI; a += angle) {
-    int limit=6;
+    float limit=2.618;
     float b = map(a, 0, HALF_PI, -limit, limit);
-    strokeWeight(6.9);
-    strokeCap(PROJECT);
-    stroke(myColors[currentPallet][int(noise(b)*100)%4]);
+    strokeWeight(1.9);
+    stroke(myColors[currentPallet][int(noise(b)*100)%5]);
     //stroke(244);
-    //noStroke();
     float x = 0;
     float y = 0;
     float sx = x + cos(a) * (radius+noise(b)*250);
     float sy = y + sin(a) * (radius+noise(b)*250);
-    line(x, y, sx, sy);
-    line(x, y, -sx, sy);
-    line(x, y, -sx, -sy);
-    line(x, y, sx, -sy);
-    stroke(255);
+    line(sx, sy,sx*100, sy*100);
+    line(-sx, sy,-sx*100, sy*100);
+    line(-sx, -sy, -sx*100, -sy*100);
+    line(sx, -sy,sx*100, -sy*100);
     vertex(sx,sy);
-    vertex(-sx,sy);
-    vertex(sx,-sy);
-    vertex(-sx,-sy);
   }
   noStroke();
-  fill(44,250);
+  fill(44,50);
   noFill();
   endShape(CLOSE);
   popMatrix();

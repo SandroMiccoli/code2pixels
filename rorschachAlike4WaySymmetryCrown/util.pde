@@ -19,7 +19,7 @@ void keyPressed() {
     redraw();
     break;
   case 'b':
-    if(bg==244) bg=44;
+    if(bg==244) bg=66;
     else bg=244;
     redraw();
     break;

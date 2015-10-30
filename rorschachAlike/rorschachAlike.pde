@@ -6,13 +6,13 @@ int radius = 100;
 void setup() {
   size(800, 800);
   background(244);
-  //noLoop();
+  noLoop();
 }
 
 void draw() { 
-  background(244);
-  //noiseSeed(int(random(500)));
-  noiseSeed(38);
+  background(bg);
+  noiseSeed(int(random(500)));
+  //noiseSeed(38);
   pushMatrix();
   translate(width/2, height/2);
   rotate(HALF_PI);
@@ -20,10 +20,11 @@ void draw() {
   beginShape();
   for (float a = angle; a <= TWO_PI; a += angle) {
     int limit=15;
-    strokeWeight(1.5);
-    //stroke(c[int(map(a,0,TWO_PI,0,255))%4]);
+    
     float b = map(a, 0, TWO_PI, -limit, limit);
-    stroke(44);
+    strokeWeight(1.5);
+    //stroke(44);
+    stroke(myColors[currentPallet][int(noise(b)*100)%5]);
     float x = 0;
     float y = 0;
     float sx = x + cos(a) * (radius+noise(b)*250);
