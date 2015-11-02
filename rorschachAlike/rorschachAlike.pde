@@ -1,6 +1,6 @@
 color c[] = {#ECD078, #D95B43, #C02942, #542437};
 
-float angle = TWO_PI / 360;
+float angle = TWO_PI / 620;
 int radius = 100;
 
 void setup() {
@@ -16,13 +16,14 @@ void draw() {
   pushMatrix();
   translate(width/2, height/2);
   rotate(HALF_PI);
-  
+  //blendMode(SUBTRACT);
   beginShape();
   for (float a = angle; a <= TWO_PI; a += angle) {
-    int limit=15;
+    float limit=10;
     
     float b = map(a, 0, TWO_PI, -limit, limit);
-    strokeWeight(1.5);
+    strokeWeight(1.9);
+    strokeCap(PROJECT);
     //stroke(44);
     stroke(myColors[currentPallet][int(noise(b)*100)%5]);
     float x = 0;

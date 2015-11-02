@@ -24,6 +24,7 @@ void draw() {
       popMatrix();
     }
   }
+  saveFrame("print.png");
 }
 
 void mousePressed(){

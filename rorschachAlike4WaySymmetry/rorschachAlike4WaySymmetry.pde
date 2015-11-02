@@ -23,9 +23,9 @@ void draw() {
   
   beginShape();
   for (float a = 0; a < HALF_PI; a += angle) {
-    int limit=6;
+    float limit=0.005;
     float b = map(a, 0, HALF_PI, -limit, limit);
-    strokeWeight(6.9);
+    strokeWeight(9.9);
     strokeCap(PROJECT);
     stroke(myColors[currentPallet][int(noise(b)*100)%4]);
     //stroke(244);
@@ -49,6 +49,7 @@ void draw() {
   noFill();
   endShape(CLOSE);
   popMatrix();
+  
 }
 
 void mousePressed() {

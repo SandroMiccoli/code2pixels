@@ -1,7 +1,7 @@
 
 import processing.pdf.*;
 
-boolean saveOneFrame = true;
+boolean saveOneFrame = false;
 
 color[] c = {
   #59B390, #F0DDAA, #E47C5D, #E32D40, #152B3C

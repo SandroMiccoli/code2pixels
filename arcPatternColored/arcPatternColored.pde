@@ -39,7 +39,6 @@ void draw() {
       popMatrix();
     }
   }
-  saveFrame(getTime()+".png");
 }
 
 void polygon(float x, float y, float radius, int npoints) {
