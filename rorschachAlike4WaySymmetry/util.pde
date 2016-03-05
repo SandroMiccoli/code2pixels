@@ -1,5 +1,5 @@
-int currentPallet=0;
-int bg=244;
+int currentPallet=3;
+int bg=44;
 color myColors[][] = {
   {#587291, #2F97C1, #1CCAD8, #15E6CD, #0CF574}, 
   {#F8E5F7, #6AB1AC, #C8EBA4, #FFF89C, #FDE9A7},

@@ -1,9 +1,10 @@
 import processing.pdf.*;
 void setup() {
-  size(842, 1191);
+  size(1000, 1000);
   background(222);
-  beginRecord(PDF, "Line01.pdf");
+  //beginRecord(PDF, "Line01.pdf");
   int inc=0;
+  strokeWeight(1.1);
   int strokeP = 100;
   int stropeL = 170;
   float leftX=width/2;
@@ -38,7 +39,7 @@ void setup() {
     }
     inc++;
   }
-  endRecord();
+  //endRecord();
   saveFrame("yeah.png");
   saveFrame("yeah.tiff");
   saveFrame("yeah.tga");

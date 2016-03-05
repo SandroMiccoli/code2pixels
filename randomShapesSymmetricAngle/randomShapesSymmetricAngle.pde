@@ -7,8 +7,8 @@ void setup() {
   size(800, 800);
   background(244);
   dist = width/2/amount+10;
-  noLoop();
-  //frameRate(4);
+  //noLoop();
+  frameRate(1);
 }
 
 void draw() {
@@ -17,7 +17,7 @@ void draw() {
   translate(width/2, height/2);
   
   //drawNSymmetryShapes(3,3,3);
-  rotate(HALF_PI);
+  rotate(HALF_PI+0);
   drawNSymmetryShapes(3,6,6);
   rotate(HALF_PI);
   drawNSymmetryShapes(3,6,6);

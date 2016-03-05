@@ -1,19 +1,22 @@
 void setup() {
   size(800, 800);
   background(244);
-  smooth();
+  //smooth();
+  noLoop();
 }
 
 void draw() {
-  background(244);
+  background(255);
   noFill();
-  stroke(44);
-  strokeWeight(1.7);
+  stroke(0);
+  //strokeWeight(1.7);
   pushMatrix();
   translate(height/2, width/2);
-  rotate(0.0);
+  //rotate(0.0);
   fractalCircle(0, 0, 200, 6, radians(33));
   popMatrix();
+  saveFrame("print.png");
+ // exit();
 }
 
 void fractalCircle(float x, float y, float r, int gen, float angle) {
@@ -34,4 +37,3 @@ void fractalCircle(float x, float y, float r, int gen, float angle) {
     //fractalCircle(x, -y, r/2, gen-1, angle);
   }
 }
-

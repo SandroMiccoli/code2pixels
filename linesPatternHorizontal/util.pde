@@ -36,8 +36,8 @@ String getTime() {
 void keyPressed() {
   switch(key) {
   case 'p':
-    println("Frame saved: "+getTime()+".tiff");
-    saveFrame(getTime()+".tiff");
+    println("Frame saved: "+getTime()+".png");
+    saveFrame(getTime()+".png");
     break;
   }
 }

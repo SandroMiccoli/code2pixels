@@ -8,28 +8,28 @@ color[] c = {
 };
 
 void setup() {
-  size(800, 800);
+  size(1300, 2000);
   noLoop();
 }
 
 void draw() {
-  background(45);
+  background(0);
   
   if(saveOneFrame == true) {
-    beginRecord(PDF, "Line01.pdf"); 
+    beginRecord(PDF, "linesnew.pdf"); 
   }
 
   noiseSeed(int(random(10)));
   
-  for (int j=0; j<height; j+=1) {
+  for (int j=0; j<height; j+=3) {
     pushMatrix();
-    float ran = noise(j)*width/2+50;
+    float ran = noise(j)*width/2+width/20;
     float x1 = 0;
     float y1 = j;
     float x2 = x1+ran;
     float y2 = y1;
     int r = int(random(5));
-    strokeWeight(2.1);
+    strokeWeight(4.1);
     stroke(c[int(r)]);
     line(x1, y1, x2, y2);
     line(width,y1,width-ran,y2);
@@ -39,6 +39,8 @@ void draw() {
     endRecord();
     saveOneFrame = false; 
   }
+  //saveFrame("generativelines.png");
+  //exit();
 }
 
 void mousePressed(){

@@ -2,29 +2,32 @@
 
 import processing.pdf.*;
 boolean saveOneFrame = true;
-
+float count=0;
+float add=0.4;
 
 void setup() {
-  size(600, 600);
-  background(44);
-  frameRate(3);
+  size(800, 800);
+  background(244);
+  //frameRate(3);
   //noLoop();
 }
 
 void draw() {
+  //count+=add;
+  if(count>3 || count<0) add*=-1;
   
   if(saveOneFrame == true) {
-    beginRecord(PDF, "Line01.pdf"); 
+    beginRecord(PDF, "lines.pdf"); 
   }
   background(244);
-  int padding = 23;
+  int padding = 0;
 
   PVector a = new PVector(padding, padding);
   PVector b = new PVector(width-padding,padding);  
   PVector c = new PVector(padding,height-padding);
   PVector d = new PVector(width-padding,height-padding);
-
-  strokeWeight(2.4);
+  println(4+count);
+  strokeWeight(2.5+count);
   //stroke(allColors[3][int(random(0, 1))], 221);
   stroke(#B24E40,222);
   drawTriangleLines(a, b, c);

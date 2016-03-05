@@ -18,6 +18,10 @@ void keyPressed() {
   case 'p':
     println("Frame saved: "+getTime()+".png");
     saveFrame(getTime()+".png");
+    saveFrame(getTime()+".tga");
+    saveFrame(getTime()+".tiff");
+    saveFrame(getTime()+".jpg");
+    saveOneFrame=true;
     break;
   case 'c':
     currentPallet=(currentPallet+1)%myColors.length;

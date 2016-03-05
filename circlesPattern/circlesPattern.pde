@@ -1,14 +1,14 @@
 
 
 void setup() {
-  size(600, 600);
+  size(800, 800);
   background(243);
   noLoop();
 }
 
 void draw() {
-  int step = 10;
-  int size = 6;
+  int step = 50;
+  int size = 40;
 
   for (int i=step; i<width; i+=step) {
     for (int j=step; j<height; j+=step) {
@@ -17,9 +17,11 @@ void draw() {
       translate(i, j);
       int r = int(random(5));
       noFill();
-      stroke(allColors[0][r],100);
+      fill(allColors[0][r],100);
       strokeWeight(2);
-      ellipse(0,0,size*noise*random(2.5),size*noise*random(2.5));
+      noStroke();
+      //ellipse(0,0,size*noise*random(2.5),size*noise*random(2.5));
+      ellipse(0,0,size*noise,size*noise);
       popMatrix();
     }
   }

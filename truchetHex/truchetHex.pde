@@ -1,3 +1,5 @@
+import processing.pdf.*;
+
 void setup() {
   size(800, 800);
   background(244);
@@ -7,6 +9,8 @@ void setup() {
 }
 
 void draw() {
+  //beginRecord(PDF, "linesnew.pdf"); 
+  noFill();
   translate(58, 13);
   background(44);
   float size=45;
@@ -19,14 +23,18 @@ void draw() {
         if (x%2==0) newY+=size*0.8667;
         translate(newX, newY);
         rotate(PI/3*int(random(50)));
-
+        stroke(44);
+        //float s = map(dist(width/2-size, height/2, newX, newY),0,width/2,1,20);
+        //strokeWeight(s);
+        fill(200);
         hexagon(0, 0, size);
 
         popMatrix();
       }
     }
   }
-  saveFrame("hex.png");
+  //saveFrame("hex.png");
+  //endRecord();
 }
 
 boolean bigHex(float x, float y) {
@@ -49,9 +57,9 @@ void hexagon(float x, float y, float radius) {
     float sy = y + sin(a) * radius;
     vertex(sx, sy);
 
-    strokeWeight(6);
+    //strokeWeight(6);
 
-    stroke(#9e2b25);
+    /*stroke(#9e2b25);
     if (a==angle*4) {
       arc(sx, sy, radius, radius, 0, TWO_PI/3, OPEN);
       arc(sx, sy, radius/2, radius/2, 0, TWO_PI/3, OPEN);
@@ -66,9 +74,9 @@ void hexagon(float x, float y, float radius) {
       arc(sx, sy, radius, radius, TWO_PI/3, TWO_PI/3*2, OPEN);
       arc(sx, sy, radius/2, radius/2, TWO_PI/3, TWO_PI/3*2, OPEN);
       arc(sx, sy, radius*1.5, radius*1.5, TWO_PI/3, TWO_PI/3*2, OPEN);
-    }
+    }*/
   }
-  strokeWeight(1);
-  stroke(44, 5);
+  //strokeWeight(2);
+  //stroke(200,255);
   endShape(CLOSE);
 }
