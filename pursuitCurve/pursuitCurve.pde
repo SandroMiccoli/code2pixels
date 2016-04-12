@@ -1,6 +1,6 @@
-/* //<>//
+/* //<>// //<>// //<>//
   Persuit Curve for any regular polygon
-*/
+ */
 
 color[] pantone2016 = 
   {
@@ -14,12 +14,12 @@ int padding=40;
 
 void setup() {
   size(800, 800);
-  background(pantone2016[9]);
+  background(pantone2016[0]);
   stroke(pantone2016[3]);
   strokeWeight(1.4);
-  
-  polygon(0, 0, 350, 4); // creates particles
-  
+
+  polygon(0, 0, 350, 6); // creates particles
+
   drawCenterRotated();
   //noLoop();
 }
@@ -29,16 +29,16 @@ void draw() {
     drawCenterRotated();
   }
 
-  followNext(m); //<>//
+  followNext(m);
   //m.get(0).move();
 }
 
-void drawCenterRotated(){
+void drawCenterRotated() {
   pushMatrix();
-  translate(width/2,height/2);
+  translate(width/2, height/2);
   rotate(PI/6);
   drawLines(m);
-  popMatrix(); 
+  popMatrix();
 }
 
 // follows next element in array
@@ -51,8 +51,8 @@ void followNext(ArrayList<Particle> p) {
 }
 
 void followPrevious(ArrayList<Particle> p) {
-  
-  p.get(0).follow(p.get(p.size()-1)); //<>//
+
+  p.get(0).follow(p.get(p.size()-1));
   for (int i=p.size()-1; i>0; i--) {
     p.get(i).follow(p.get(i-1));
   }
@@ -69,20 +69,10 @@ void drawLines(ArrayList<Particle> p) {
 
 // creates a Particle for each vertex of the polygon and adds it to the array m 
 void polygon(float x, float y, float radius, int npoints) {
-  if (npoints<=2) {
-    pushStyle();
-    stroke(44);
-    point(x, y);
-    popStyle();
-  } else {
-    float angle = TWO_PI / npoints;
-    //beginShape();
-    for (float a = 0; a < TWO_PI; a += angle) {
-      float sx = x + cos(a) * radius;
-      float sy = y + sin(a) * radius;
-      //vertex(sx, sy);
-      m.add(new Particle(sx, sy, 1.2));
-    }
-    //endShape(CLOSE);
+  float angle = TWO_PI / npoints;
+  for (float a = 0; a < TWO_PI; a += angle) {
+    float sx = x + cos(a) * radius;
+    float sy = y + sin(a) * radius;
+    m.add(new Particle(sx, sy, 1.2));
   }
 }
